@@ -1,13 +1,13 @@
-#Homework Assignment 6 - Magnetic Poetry
+# Homework Assignment 6 - Magnetic Poetry
 
 - Author: Shuang Lin
 - Email: shuanglin3359@gmail.com
 
-###CSE 264 – Fall 2022
+### CSE 264 – Fall 2022
 
 - Due Thursday, October 27th, 11:59pm
 
-###Description
+### Description
 The assignment is to create a web page that will simulate the "magnetic poetry" that is sold in many bookstores. The background color of the page must be something other than white (be creative). A series of bold faced, black lettered words should appear in white (or some other contrasting color) rectangular boxes. The user of the page must be able to drag and drop the words around the page to create sentences (or other artistic arrangements). The page should contain a single text box and a button with the label “Add Word” in the upper left corner of the page. When the user types some text in the box and clicks the button, a new “magnetic” word should appear on the page. The page will also contain an icon for a trash can near the top of the page. When the user drags and drops a word on the trash can icon, the word is removed from the board. When the page is closed all words must be written to permanent storage including their positions on the screen and restored when the page is reloaded. All the dom manipulation and event handling must be done using jQuery.
 Instructions
 Setup
@@ -63,7 +63,7 @@ Want some extra credit to make up for lost points on prior homeworks? You have t
 3. Provide two buttons (Bounce and Stop) that cause the words to bounce around the screen and to stop bouncing just like in the bouncing balls demo. You may copy whatever code you like from the demo. The save and restore must restore the buttons to their positions after they stop bouncing.
 4. Instead of saving the button into to localStorage, use an Ajax call to save it to the server (node script) and reload it from there.
 
-###Grading Rubric
+### Grading Rubric
 
 1. (5 pts) All files have indicated comments.
 2. (5 pts) package.json is present and has indicated values.
