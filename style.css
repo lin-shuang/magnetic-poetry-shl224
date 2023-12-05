@@ -1,0 +1,36 @@
+/*
+Author: Shuang Lin
+Email: shl224@lehigh.edu
+*/
+
+html{
+    margin: auto;
+    display:grid;
+}
+#header{
+    padding: 10px;
+    text-align: center;
+}
+#options{
+    padding: 10px;
+    text-align: center;
+}
+#trash{
+    width: 35px;
+    height: 35px;
+}
+#board{
+    background-color: #BF659F;
+    padding: 10px;
+    text-align: center;
+    height: 500px;
+    margin: auto;
+}
+.word{
+    position: absolute;
+    cursor: move;
+}
+#footer{
+    padding: 10px;
+    text-align: center;
+}
