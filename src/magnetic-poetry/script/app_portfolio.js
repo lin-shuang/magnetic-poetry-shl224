@@ -84,25 +84,24 @@ $(function () {
     $(document).mouseup(function (event) {
 
         // Store word position
-        console.log(finalY);
-        console.log(finalX);
-        updateWord(wordTarget.id, finalY, finalX);
+        if(finalX > 0 && finalY > 0){
+            updateWord(wordTarget.id, finalY, finalX);
+        }
 
         document.onmouseup = null;
         document.onmousemove = null;
         dragging = false;
 
         // Check if button is overlapping trash can
-        console.log(wordTarget.id);
-        console.log("#" + wordTarget.id);
-        let rect1 = $("#" + wordTarget.id)[0].getBoundingClientRect();
-        let rect2 = $('#trash')[0].getBoundingClientRect();
-        if (isOverlapped(rect1, rect2)) {
+        if(finalX > 0 && finalY > 0){
+            let rect1 = $("#" + wordTarget.id)[0].getBoundingClientRect();
+            let rect2 = $('#trash')[0].getBoundingClientRect();
+            if (isOverlapped(rect1, rect2)) {
 
-            // trash word
-            trashWord(wordTarget.id)
+                // trash word
+                trashWord(wordTarget.id)
+            }
         }
-        console.log("letting go: ", wordTarget);
 
         // Reset variables
         wordTarget = null;
@@ -185,14 +184,11 @@ function addWord(text) {
             text,
             20, 160 // x, y default position
         );
-    } else {
-        console.log("Error, no client text to add");
     }
     buildBoard();
 }
 
 function updateWord(id, x, y) {
-    console.log(wordList);
     // Find matching word and update its coordinates
     for (let i = 0; i < wordList.length; i++) {
         if (wordList[i].id == id) {
