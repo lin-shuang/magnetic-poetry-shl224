@@ -10,6 +10,22 @@ Imported & updated client.js
 
 // Functions //////////////////////////////////////////////////////////
 
+// Size
+
+let sizeInput = $('#size');
+let sizeValue = $('#size-value');
+let size = 1; // initial size
+sizeValue.text(size.toFixed(1)); // Use toFixed() to format number to one decimal place
+sizeInput.val(size);
+sizeInput.on('input', () => { 
+  sizeValue.text(sizeInput.val());
+  size = sizeInput.val();
+});
+sizeValue.on('input', () => { // Set limit on max val
+  sizeValue.text(sizeInput.val());
+  size = sizeInput.val();
+});
+
 // Word Submission
 $(function () {
 
@@ -25,7 +41,7 @@ $(function () {
     $('#addButton').click(function () {
         // Check if type has target
         if ($("#textInput").val()) {
-            addWord($("#textInput").val());
+            addWord($("#textInput").val(), size);
         }
         $("#wordForm")[0].reset();
     });
@@ -141,9 +157,10 @@ Imported & updated app.js
 */
 // Variables
 class Word {
-    constructor(id, text, x, y) {
+    constructor(id, text, size, x, y) {
         this.id = id;
         this.text = text;
+        this.size = size
         this.x = x;
         this.y = y;
     }
@@ -166,8 +183,9 @@ function buildBoard() {
             wordsHTML +=
                 "<button class='word' " +
                 "style='left:" + wordList[i].x + "px;" +
-                "top:" + wordList[i].y + "px' " +
-                "id=" + wordList[i].id +
+                "top:" + wordList[i].y + "px;" +
+                "scale:" + wordList[i].size + "' " +
+                "id=" + wordList[i].id + " " +
                 ">" +
                 wordList[i].text +
                 "</button>";
@@ -177,12 +195,13 @@ function buildBoard() {
 }
 
 // Functions for GitHub Pages - replace server-side logic
-function addWord(text) {
+function addWord(text, size) {
     if (text) {
         wordList[count] = new Word(
-            "w" + count++,
+            "w" + count++, // id
             text,
-            20, 160 // x, y default position
+            size,
+            Math.floor($(window).width()/2), Math.floor($(window).height()/2) // x, y default position
         );
     }
     buildBoard();

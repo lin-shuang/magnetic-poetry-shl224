@@ -6,33 +6,94 @@ Email: shl224@lehigh.edu
 <!DOCTYPE html>
 <html lang ="en">
 <head>
-    <title>Magnetic Poetry</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset ="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Magnetic Poetry</title>
     <link rel="stylesheet" href="./style.css">
-
+    <link rel="stylesheet" href="./src/shuang-lin/fonts/font-awesome-4.7.0/css/font-awesome.css">
 </head>
-    <body>
 
-        <main>
-            <div id="header">
-                <h1>Magnetic Poetry</h1>
-            </div>
-        
-            <div id="options">
+<body>
+
+    <!-- Header Bar -->
+    <header>
+        <nav>
+          <div class="logo"><b>Shuang Lin</b></div>
+          <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <div class="menu-overlay" id="menu-overlay"></div>
+    
+          <ul class="nav-links" id="nav-links">
+            <li><a href="https://lin-shuang.github.io/#home"><b>Home</b></a></li>
+            <li><a href="https://lin-shuang.github.io/#projects"><b>Projects</b></a></li>
+            <li><a href="https://lin-shuang.github.io/src/shuang-lin/resume/Shuang_Lin_Resume.pdf" download="Shuang_Lin_Resume.pdf" target="_blank"><b>Resume</b></a></li>
+          </ul>
+        </nav>
+    </header>
+    <!-- Background Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+        <!-- Back and Github buttons -->
+        <section class="separator"></section>
+        <div class="social-icons" id="go-back">
+            <a href="https://lin-shuang.github.io/src/pages/web-games-tools.html">
+                <button id="button-back">Back</button>
+            </a>
+            <a href="https://github.com/lin-shuang/magnetic-poetry-shl224" target="_blank">
+                <i class="fa fa-github" id="github-current"></i>
+            </a>
+        </div>
+
+        <div id="header">
+            <h1>Magnetic Poetry</h1>
+        </div>
+    
+        <div id="options">
             <form id="wordForm">
                 <img id="trash" class="button" src="./src/magnetic-poetry/original/public/trashcan.png">
                 <input id="textInput" type="text" name="Word">
                 <input id="addButton" type="button" value="Add">
             </form>
+            <!-- Size Slider -->
+            <div id="size-slider">
+                <label for="size">Size:</label>
+                <input type="range" id="size" name="size" min="1" max="10" step="0.1" value="1">
+                <span id="size-value" contenteditable="true" oninput="$('#size').val(parseFloat(this.innerText).toFixed(1))">1</span>
             </div>
-        
-            <div id="board">
-                <!--words inserted here by scripts-->
-            </div>
-        </main>
+        </div>
     
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-        <script src="./src/magnetic-poetry/script/app_portfolio.js"></script>
-    </body>
+        <div id="board">
+            <!--words inserted here by scripts-->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>&copy; 2022 Shuang Lin</div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/shuang__________" target="_blank">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/shuanglin-/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@linshuang" target="_blank">
+                <i class="fa fa-youtube"></i>
+            </a>
+            <a href="https://github.com/lin-shuang" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="./src/shuang-lin/scripts/nav-links.js"></script>
+    <script src="./src/magnetic-poetry/script/app_portfolio.js"></script>
+</body>
 </html>
